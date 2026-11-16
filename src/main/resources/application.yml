@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: cocos-assets-api
+
+
+management:
+  endpoints:
+    jmx:
+      exposure:
+        include: "health,info"
+    web:
+      base-path: /
+  server:
+    base-path: /assets-api
