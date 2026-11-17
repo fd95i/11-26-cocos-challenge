@@ -1,7 +1,12 @@
 spring:
   application:
     name: cocos-assets-api
-
+  datasource:
+    url: jdbc:postgresql://ep-broad-hill-bduq2x55-pooler.c-8.us-east-2.aws.neon.tech/neondb?sslmode=require&channel_binding=require
+    jdbcUrl: ${spring.datasource.url}
+    driverClassName: org.postgresql.Driver
+    username: neondb_owner
+    password: npg_WORjlMJ2zUt5
 
 management:
   endpoints:
