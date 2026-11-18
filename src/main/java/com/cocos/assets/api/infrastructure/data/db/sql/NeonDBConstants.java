@@ -47,4 +47,19 @@ public class NeonDBConstants {
             WHERE userid = ?
               AND status = 'FILLED';
             """;
+
+    public static final String INSTRUMENTS_SEARCH_QUERY = """
+            WITH totales AS (
+                SELECT count(*) AS count
+                FROM instruments
+                WHERE LOWER(name) LIKE LOWER(:name)
+                  AND LOWER(ticker) LIKE LOWER(:ticker)
+                )
+            SELECT i.*, totales.count
+            FROM instruments i, totales
+            WHERE LOWER(name) LIKE LOWER(:name)
+              AND LOWER(ticker) like LOWER(:ticker)
+            ORDER BY name
+            LIMIT :limit OFFSET :offset;
+            """;
 }

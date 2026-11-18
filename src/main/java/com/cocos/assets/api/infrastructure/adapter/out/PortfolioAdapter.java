@@ -2,13 +2,13 @@ package com.cocos.assets.api.infrastructure.adapter.out;
 
 import com.cocos.assets.api.application.port.PortfolioPort;
 import com.cocos.assets.api.infrastructure.data.db.PortfolioDAO;
-import com.cocos.assets.api.infrastructure.data.db.dto.InstrumentSummaryDTO;
-import org.springframework.stereotype.Component;
+import com.cocos.assets.api.infrastructure.data.db.dto.InstrumentSummaryDataDTO;
+import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
 import java.util.List;
 
-@Component
+@Service
 public class PortfolioAdapter implements PortfolioPort {
     private final PortfolioDAO dao;
 
@@ -22,7 +22,7 @@ public class PortfolioAdapter implements PortfolioPort {
     }
 
     @Override
-    public List<InstrumentSummaryDTO> getInstrumentSummaryFor(Integer userId) {
+    public List<InstrumentSummaryDataDTO> getInstrumentSummaryFor(Integer userId) {
         return dao.getInstrumentSummary(userId);
     }
 }

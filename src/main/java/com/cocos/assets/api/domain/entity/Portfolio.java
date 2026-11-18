@@ -8,5 +8,5 @@ public record Portfolio(
         Integer userId,
         BigDecimal totalValue,
         BigDecimal available,
-        List<Asset> assets
+        List<AssetSummary> assetSummaries
 ) { }

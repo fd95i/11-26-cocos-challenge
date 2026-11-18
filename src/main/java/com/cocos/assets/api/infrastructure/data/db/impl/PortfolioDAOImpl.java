@@ -1,7 +1,7 @@
 package com.cocos.assets.api.infrastructure.data.db.impl;
 
 import com.cocos.assets.api.infrastructure.data.db.PortfolioDAO;
-import com.cocos.assets.api.infrastructure.data.db.dto.InstrumentSummaryDTO;
+import com.cocos.assets.api.infrastructure.data.db.dto.InstrumentSummaryDataDTO;
 import org.springframework.jdbc.core.simple.JdbcClient;
 import org.springframework.stereotype.Repository;
 
@@ -28,10 +28,10 @@ public class PortfolioDAOImpl implements PortfolioDAO {
     }
 
     @Override
-    public List<InstrumentSummaryDTO> getInstrumentSummary(Integer userId) {
+    public List<InstrumentSummaryDataDTO> getInstrumentSummary(Integer userId) {
         return neonClient.sql(INSTRUMENTS_QUERY)
                 .param(userId)
-                .query(InstrumentSummaryDTO.class)
+                .query(InstrumentSummaryDataDTO.class)
                 .list();
     }
 }

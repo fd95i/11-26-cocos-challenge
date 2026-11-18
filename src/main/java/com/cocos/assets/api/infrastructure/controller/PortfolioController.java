@@ -1,6 +1,5 @@
 package com.cocos.assets.api.infrastructure.controller;
 
-import com.cocos.assets.api.domain.entity.Portfolio;
 import com.cocos.assets.api.infrastructure.adapter.in.GetPortfolioHandler;
 import com.cocos.assets.api.infrastructure.controller.dto.GetPortfolioResponseDTO;
 import org.springframework.http.ResponseEntity;

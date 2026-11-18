@@ -1,7 +1,7 @@
 package com.cocos.assets.api.infrastructure.controller.mapper;
 
 import com.cocos.assets.api.domain.entity.Portfolio;
-import com.cocos.assets.api.infrastructure.controller.dto.AssetResponseDTO;
+import com.cocos.assets.api.infrastructure.controller.dto.AssetSummaryResponseDTO;
 import com.cocos.assets.api.infrastructure.controller.dto.GetPortfolioResponseDTO;
 
 import java.util.function.Function;
@@ -13,8 +13,8 @@ public class PortfolioToResponseDTOMapper implements Function<Portfolio, GetPort
           portfolio.userId(),
           portfolio.totalValue(),
           portfolio.available(),
-          portfolio.assets().stream().map( asset ->
-              new AssetResponseDTO(
+          portfolio.assetSummaries().stream().map(asset ->
+              new AssetSummaryResponseDTO(
                       asset.instrumentId(),
                       asset.type(),
                       asset.ticker(),
