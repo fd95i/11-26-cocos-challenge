@@ -6,6 +6,6 @@ public record GetPortfolioResponseDTO(
         Integer userId,
         BigDecimal totalValue,
         BigDecimal available,
-        List<AssetResponseDTO> assets
+        List<AssetSummaryResponseDTO> assets
 ) {
 }

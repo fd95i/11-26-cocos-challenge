@@ -2,7 +2,7 @@ package com.cocos.assets.api.infrastructure.data.db.dto;
 
 import java.math.BigDecimal;
 
-public record InstrumentSummaryDTO(
+public record InstrumentSummaryDataDTO(
          Integer userid,
          Integer totalSize,
          Integer instrumentid,
