@@ -1,0 +1,101 @@
+{
+  "info": {
+    "_postman_id": "75610836-b5e8-4578-840b-2c3006ecdf3f",
+    "name": "cocos-assets-api",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "5249131"
+  },
+  "item": [
+    {
+      "name": "health",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "localhost:8080/health",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "health"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "/portfolio/:id",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "localhost:8080/cocos-assets-api/portfolio/:id",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "cocos-assets-api",
+            "portfolio",
+            ":id"
+          ],
+          "variable": [
+            {
+              "key": "id",
+              "value": "2"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "/assets",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "localhost:8080/cocos-assets-api/assets",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "cocos-assets-api",
+            "assets"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "/order",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"instrumentId\": 66,\n    \"userId\": 2,\n    \"size\": 100000,\n    \"side\": \"CASH_OUT\",\n    \"type\": \"MARKET\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "localhost:8080/cocos-assets-api/orders",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "cocos-assets-api",
+            "orders"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}
