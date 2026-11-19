@@ -1,0 +1,1 @@
+# Para ejecutar localmente, previamente setear el valor de la env NEON_DB_URL con el connectionstring de la db correspondiente

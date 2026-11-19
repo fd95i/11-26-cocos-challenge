@@ -1,7 +1,7 @@
 package com.cocos.assets.api.infrastructure.adapter.in;
 
 
-import com.cocos.assets.api.application.usecase.GetAssetsUseCase;
+import com.cocos.assets.api.application.usecase.GetAssetsUseCaseImpl;
 import com.cocos.assets.api.domain.entity.AssetSearchCriteria;
 import com.cocos.assets.api.domain.entity.AssetSearchResult;
 import com.cocos.assets.api.infrastructure.controller.dto.AssetPaginatedRequestDTO;
@@ -14,11 +14,11 @@ import java.util.function.Function;
 
 @Component
 public class GetAssetsHandler implements Function<AssetPaginatedRequestDTO, AssetPaginatedResponseDTO> {
-    private final GetAssetsUseCase useCase;
+    private final GetAssetsUseCaseImpl useCase;
     private final AssetPaginatedRequestToAssertSearchCriteria inboundMapper;
     private final AssetToAssetResponseDTO outboundMapper;
 
-    public GetAssetsHandler(GetAssetsUseCase useCase) {
+    public GetAssetsHandler(GetAssetsUseCaseImpl useCase) {
         this.useCase = useCase;
         this.inboundMapper = new AssetPaginatedRequestToAssertSearchCriteria();
         this.outboundMapper = new AssetToAssetResponseDTO();
