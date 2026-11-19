@@ -2,7 +2,6 @@ package com.cocos.assets.api.infrastructure.adapter.in;
 
 
 import com.cocos.assets.api.application.usecase.GetAssetsUseCase;
-import com.cocos.assets.api.domain.entity.Asset;
 import com.cocos.assets.api.domain.entity.AssetSearchCriteria;
 import com.cocos.assets.api.domain.entity.AssetSearchResult;
 import com.cocos.assets.api.infrastructure.controller.dto.AssetPaginatedRequestDTO;
