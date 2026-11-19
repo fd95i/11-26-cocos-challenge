@@ -22,6 +22,11 @@ public class PortfolioAdapter implements PortfolioPort {
     }
 
     @Override
+    public Integer getTotalSizeFor(Integer userId, Integer instrumentId) {
+        return dao.getTotalSizeFor(userId, instrumentId);
+    }
+
+    @Override
     public List<InstrumentSummaryDataDTO> getInstrumentSummaryFor(Integer userId) {
         return dao.getInstrumentSummary(userId);
     }

@@ -8,8 +8,7 @@ import org.springframework.stereotype.Repository;
 import java.math.BigDecimal;
 import java.util.List;
 
-import static com.cocos.assets.api.infrastructure.data.db.sql.NeonDBConstants.BALANCE_QUERY;
-import static com.cocos.assets.api.infrastructure.data.db.sql.NeonDBConstants.INSTRUMENTS_QUERY;
+import static com.cocos.assets.api.infrastructure.data.db.sql.NeonDBConstants.*;
 
 @Repository
 public class PortfolioDAOImpl implements PortfolioDAO {
@@ -33,5 +32,14 @@ public class PortfolioDAOImpl implements PortfolioDAO {
                 .param(userId)
                 .query(InstrumentSummaryDataDTO.class)
                 .list();
+    }
+
+    @Override
+    public Integer getTotalSizeFor(Integer userId, Integer instrumentId) {
+        return neonClient.sql(GET_TOTAL_SIZE_FOR_INSTRUMENT_BY_USER_QUERY)
+                .param(userId)
+                .param(instrumentId)
+                .query(Integer.class)
+                .single();
     }
 }
