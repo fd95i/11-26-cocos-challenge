@@ -19,3 +19,6 @@ management:
         include: "health,info"
     web:
       base-path: /
+logging:
+  level:
+    com.cocos.assets.api: DEBUG

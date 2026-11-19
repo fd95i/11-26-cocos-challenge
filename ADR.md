@@ -25,3 +25,9 @@
   - el `instrumentId` de los pesos es siempre **66**;
   - es el **único** instrumento de tipo `MONEDA`;
   - por eso no se consulta al crear la orden y queda **hardcodeado**.
+
+## Testing
+- Para cubrir el alcance del challenge solo se testea el caso de uso de creación de órdenes
+
+## Excepciones
+- Se omite el uso de ControllerAdvice/ExceptionHandler 

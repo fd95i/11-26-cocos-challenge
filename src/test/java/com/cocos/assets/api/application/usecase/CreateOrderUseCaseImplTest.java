@@ -30,7 +30,7 @@ import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
-class CreateOrderUseCaseTest {
+class CreateOrderUseCaseImplTest {
 
     private static final Integer USER_ID = 1;
     private static final Integer STOCK_ID = 47;
@@ -43,11 +43,11 @@ class CreateOrderUseCaseTest {
     @Mock private MarketDataPort marketDataPort;
     @Captor private ArgumentCaptor<Order> orderCaptor;
 
-    private CreateOrderUseCase useCase;
+    private CreateOrderUseCaseImpl useCase;
 
     @BeforeEach
     void setUp() {
-        useCase = new CreateOrderUseCase(ordersPort, portfolioPort, marketDataPort);
+        useCase = new CreateOrderUseCaseImpl(ordersPort, portfolioPort, marketDataPort);
         lenient().when(ordersPort.create(any(Order.class)))
                 .thenAnswer(inv -> toDto(inv.getArgument(0)));
         lenient().when(marketDataPort.getCloseValueFor(STOCK_ID)).thenReturn(CLOSE);

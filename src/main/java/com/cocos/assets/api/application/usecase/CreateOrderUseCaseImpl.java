@@ -8,6 +8,8 @@ import com.cocos.assets.api.domain.enums.OrderSide;
 import com.cocos.assets.api.domain.enums.OrderStatus;
 import com.cocos.assets.api.domain.enums.OrderType;
 import com.cocos.assets.api.infrastructure.data.db.dto.OrderDataDTO;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
 import java.math.BigDecimal;
@@ -20,13 +22,14 @@ import static com.cocos.assets.api.domain.enums.OrderStatus.*;
 import static com.cocos.assets.api.domain.enums.OrderType.MARKET;
 
 @Component
-public class CreateOrderUseCase {
+public class CreateOrderUseCaseImpl {
+    private static final Logger log = LoggerFactory.getLogger(CreateOrderUseCaseImpl.class);
     private static final Integer ARS_INSTRUMENT_ID = 66;
     private final OrdersPort ordersPort;
     private final PortfolioPort portfolioPort;
     private final MarketDataPort marketDataPort;
 
-    public CreateOrderUseCase(
+    public CreateOrderUseCaseImpl(
             OrdersPort ordersPort,
             PortfolioPort portfolioPort,
             MarketDataPort marketDataPort
@@ -42,11 +45,14 @@ public class CreateOrderUseCase {
 
         boolean valid = isOrderValid(orderWithStatus);
         if (!valid) {
+            log.warn("order with userId {} on instrumentId {} and side {} is not valid, rejecting", orderWithStatus.userId(), orderWithStatus.instrumentId(), orderWithStatus.side());
             orderWithStatus = orderWithStatus.toBuilder()
                     .status(REJECTED)
                     .build();
         }
+        log.debug("creating order with userId {} on instrumentId {} and side {}", orderWithStatus.userId(), orderWithStatus.instrumentId(), orderWithStatus.side());
         OrderDataDTO createdOrder = ordersPort.create(orderWithStatus);
+        log.info("created order with id {}", createdOrder.id());
         return Order.builder()
                 .id(createdOrder.id())
                 .instrumentId(createdOrder.instrumentid())

@@ -1,6 +1,6 @@
 package com.cocos.assets.api.domain.enums;
 
-import com.cocos.assets.api.infrastructure.config.exception.InvalidOrderException;
+import com.cocos.assets.api.domain.exception.InvalidOrderException;
 
 import java.util.Arrays;
 
