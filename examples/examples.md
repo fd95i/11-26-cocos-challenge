@@ -105,6 +105,8 @@ GET /assets?name={name}&ticker={ticker}
 |----------|--------|-----------|-------------------------------------------------|
 | `ticker` | string | No        | Ticker completo o parcial (ej.: `bbar`)         |
 | `name`   | string | No        | Nombre completo o parcial (ej.: `ban`)          |
+| `limit`   | integer | No        | limite de registros a consultar (ej.: 10)          |
+| `offset`   | integer | No        | desplazamiento (ej.: 0)          |
 
 ### Ejemplos
 
@@ -112,11 +114,15 @@ GET /assets?name={name}&ticker={ticker}
 # Todos los activos
 curl "http://localhost:8080/cocos-assets-api/assets"
 
+# Todos los activos (con limit y offset)
+curl "http://localhost:8080/cocos-assets-api/assets?limit=30&offset=20"
+
 # Por ticker
 curl "http://localhost:8080/cocos-assets-api/assets?ticker=bbar"
 
 # Por nombre y ticker
 curl "http://localhost:8080/cocos-assets-api/assets?name=ban&ticker=bbar"
+
 ```
 
 ### Respuesta `200 OK`
