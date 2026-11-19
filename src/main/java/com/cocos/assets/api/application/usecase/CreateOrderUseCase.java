@@ -74,7 +74,6 @@ public class CreateOrderUseCase {
         return order;
     }
 
-    // falta validar tenencia de acciones
     public boolean isOrderValid(Order order) {
         if (order.side() == null || order.status() == null || order.type() == null)
             return false;

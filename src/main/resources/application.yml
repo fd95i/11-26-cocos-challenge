@@ -8,6 +8,10 @@ spring:
     username: neondb_owner
     password: npg_WORjlMJ2zUt5
 
+server:
+  servlet:
+    context-path: /cocos-assets-api
+
 management:
   endpoints:
     jmx:
@@ -15,5 +19,3 @@ management:
         include: "health,info"
     web:
       base-path: /
-  server:
-    base-path: /assets-api
