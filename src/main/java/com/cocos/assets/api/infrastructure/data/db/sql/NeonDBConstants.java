@@ -62,4 +62,27 @@ public class NeonDBConstants {
             ORDER BY name
             LIMIT :limit OFFSET :offset;
             """;
+
+    public static final String INSERT_ORDER_QUERY = """
+            INSERT INTO "orders" (instrumentid,userid,size,price,side,status,type,datetime) VALUES (:instrumentid,:userid,:size,:price,:side,:status,:type,:datetime);
+            """;
+
+    public static final String GET_CLOSE_QUERY = """
+            SELECT close
+            FROM marketdata m
+            WHERE instrumentid = ?
+              AND date = (SELECT MAX(m2.date) FROM marketdata m2 WHERE m2.instrumentid = m.instrumentid)
+            """;
+
+    public static final String GET_TOTAL_SIZE_FOR_INSTRUMENT_BY_USER_QUERY = """
+            SELECT SUM(CASE side
+                     WHEN 'BUY'      THEN size
+                     WHEN 'CASH_IN'  THEN size
+                     WHEN 'SELL'     THEN -size
+                     WHEN 'CASH_OUT' THEN -size
+                   END) AS totalsize
+            FROM orders
+            WHERE userid = ? and instrumentid = ?
+              AND status = 'FILLED';
+            """;
 }

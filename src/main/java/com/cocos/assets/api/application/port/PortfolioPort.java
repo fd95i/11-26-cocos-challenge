@@ -7,5 +7,6 @@ import java.util.List;
 
 public interface PortfolioPort {
     BigDecimal getAvailableBalanceFor(Integer userId);
+    Integer getTotalSizeFor(Integer userId, Integer instrumentId);
     List<InstrumentSummaryDataDTO> getInstrumentSummaryFor(Integer userId);
 }
